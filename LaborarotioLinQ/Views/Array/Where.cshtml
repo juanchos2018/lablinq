@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LaborarotioLinQ.Models.ClsEstudiantes2>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Where</title>
+</head>
+<body>
+    <div>
+
+        <h1><strong> lista de estudiantes con Where</strong></h1>
+
+        <table class="table">
+            <tr>
+                <td>Lista</td>
+            </tr>
+
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                </tr>
+
+
+            }
+
+
+        </table>
+    </div>
+</body>
+</html>

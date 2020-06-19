@@ -1,0 +1,35 @@
+﻿@model LaborarotioLinQ.Models.ClsEstudianteNota
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>list ade estudianes</h1>
+
+        <br />
+
+        @using (Html.BeginForm("Index", "EstudianteNota", FormMethod.Post))
+        {
+               <label> Ingrese Apellido</label> <br />
+               @Html.TextAreaFor(m=>m.busqueda)
+                <br />
+                <input type="submit"  value="Buscar" />
+
+                <br />
+
+        }
+
+        @Html.TextAreaFor(model =>model.resultado,new { rows="24",cols="40"})
+    <br />
+
+    </div>
+</body>
+</html>

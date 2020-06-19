@@ -1,0 +1,142 @@
+﻿@model LaborarotioLinQ.Models.ClsEstudiante
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+    <style>
+
+        table {
+            font-family: Arial,sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+        
+        }
+
+        td {
+            border: 1px solid #4cff00;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #4cff00;
+        }
+
+        div#tabla_uno {
+            width: 200px;
+            position: relative;
+            float: left;
+            margin-left:37%;
+            height: auto;
+         
+        }
+
+        div#tabla_centro {
+            width: 200px;
+            position: relative;
+            float: left;
+            height: auto;
+            margin-left: 5%;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div>
+
+        <h1 style="text-align:center">Lista de estudianes</h1>
+
+        <br />
+
+        @using (Html.BeginForm("Index", "Estudiante", FormMethod.Post))
+        {
+
+
+
+
+    <div id="tabla_uno">
+        <label> Ingrese Apellido</label> <br />
+        @Html.TextBoxFor(m => m.busqueda)
+        <br /> <br />
+        <input type="submit" value="Buscar" class="btn btn-success btn-block"   />
+    </div>
+
+            <div id="tabla_centro">
+                
+                <div>
+                    <input type="radio" name="notas" value="Nombre" /> <label>Nombre </label>
+                </div>
+                <div>
+                    <input type="radio" name="notas" value="Nota" /> <label>Nota </label>
+                </div>
+
+                <div>
+                    <input type="radio" name="notas" value="Condicion" /> <label>Condicon </label>
+                </div>
+
+            </div>
+
+            <br />
+
+        }
+
+
+        <div class="container" style="margin-left:20%;margin-top:12%">
+
+            <table>
+                <tr>
+                    <td>numeri</td>
+                    <td>EStudiate</td>
+                    <td>Nota</td>
+                    <td>condicion</td>
+                </tr>
+                @{ int n = 1; }
+
+                @for (int i = 0; i < Model.nombeE.Count(); i++)
+                {
+                    <tr>
+                        <td> @( n++)</td>
+                        <td>  @Model.nombeE[i]  </td>
+                        <td>
+                            @if (Model.notaE[i] >= 11 && Model.notaE[i] <= 20)
+                            {
+                                <span style="color:blue">   @Model.notaE[i]</span>
+                            }
+                            else
+                            {
+                                <span style="color:red">   @Model.notaE[i]</span>
+                            }
+                        </td>
+                        <td>
+                            @if (Model.notaE[i] >= 11 && Model.notaE[i] <= 20)
+                            {
+                                <span style="color:blue">   Aprobado</span>
+                            }
+                            else
+                            {
+                                <span style="color:red">   Desaprobado</span>
+                            }
+                        </td>
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+
+        @Model.filas;
+
+
+        <br />
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LaborarotioLinQ.Models.ClsEstudiantes2>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listar</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<body>
+    <div>
+
+        <h1><strong> lista de estudiantes con List</strong></h1>
+
+        <br />
+
+
+
+
+        <table class="table">
+            <tr>
+                <td>Lista</td>
+            </tr>
+
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                </tr>
+
+
+            }
+
+
+        </table>
+        <br />
+    </div>
+</body>
+</html>
